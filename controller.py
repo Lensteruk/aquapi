@@ -1,9 +1,23 @@
 #!/usr/bin/python
-
-# Start by importing the libraries we want to use
-
+import sys
+import Adafruit_DHT
 import RPi.GPIO as GPIO # This is the GPIO library we need to use the GPIO pins on the Raspberry Pi
 import time # This is the time library, we need this so we can use the sleep function
+
+
+# temperature and humidity detection
+
+while True:
+
+    humidity, temperature = Adafruit_DHT.read_retry(11, 4)
+
+    print 'Temp: {0:0.1f} C  Humidity: {1:0.1f} %'.format(temperature, humidity)
+
+
+
+# Moisture detector
+# Start by importing the libraries we want to use
+
 
 # Define some variables to be used later on in our script
 
